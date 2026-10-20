@@ -1,0 +1,4 @@
+.DS_Store
+node_modules/
+.impeccable/questions/
+.impeccable/config.local.json

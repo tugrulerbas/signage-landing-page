@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=1440">
+<title>Yayın Planı — bonmlink</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#009FE3;--orange:#FF6600;--ink:#1F1E20;--ink2:#414042;--paper:#F4F4F4;--rule:#D9D9D9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:Archivo,sans-serif;font-variant-numeric:tabular-nums}
+.plan{background:repeating-linear-gradient(90deg,transparent 0 calc((100% - 230px)/18 - 1px),var(--rule) 0 calc((100% - 230px)/18)) 230px 0/calc(100% - 230px) 100% no-repeat,var(--paper);display:grid;grid-template-columns:230px repeat(18,1fr);grid-template-rows:56px 44px repeat(9,88px);height:900px;border-left:1px solid var(--rule)}
+.c{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative}
+.top{grid-column:1/-1;display:flex;align-items:center;gap:32px;padding:0 28px;background:var(--ink);color:#fff;font-size:15px;font-stretch:110%}
+.top b{font-weight:800;font-size:20px;letter-spacing:-.01em}.top b i{font-style:normal;color:var(--orange)}
+.top nav{display:flex;gap:28px;margin-left:auto;color:#fff}
+.top .cta{background:var(--orange);color:#fff;padding:10px 18px;font-weight:700}
+.hr{display:flex;align-items:flex-end;padding:0 0 8px 6px;font-size:13px;font-weight:600;color:var(--ink2);background:#fff}
+.hr.now{color:var(--orange)}
+.loc{display:flex;flex-direction:column;justify-content:center;padding:0 18px;background:#fff;font-size:15px;font-weight:700}
+.loc span{font-weight:400;font-size:13px;color:var(--ink2)}
+.slot{margin:6px 3px;display:flex;flex-direction:column;justify-content:space-between;padding:8px 10px;font-size:13px;font-weight:600;color:#fff}
+.own{background:var(--blue)}.sold{background:var(--orange)}
+.free{background:repeating-linear-gradient(135deg,transparent 0 7px,#E6E6E6 7px 8px);color:var(--ink2);border:1px dashed #BDBDBD}
+.played::after{content:"✓ oynadı";position:absolute;right:10px;bottom:8px;font-size:11px;opacity:.85}
+.head{grid-column:2/12;grid-row:3/9;background:var(--paper);padding:34px 40px 0 36px;z-index:2;display:flex;flex-direction:column;gap:22px}
+.head h1{font-size:78px;line-height:.9;font-weight:900;font-stretch:118%;letter-spacing:-.035em}
+.head h1 em{font-style:normal;color:var(--orange)}
+.head p{font-size:22px;line-height:1.35;max-width:36ch;color:var(--ink2)}
+.head .row{display:flex;gap:14px;align-items:center}
+.btn{white-space:nowrap;background:var(--orange);color:#fff;font-weight:800;font-size:20px;padding:20px 30px;font-stretch:110%}
+.btn2{white-space:nowrap;border:2px solid var(--ink);padding:18px 26px;font-weight:700;font-size:18px}
+.nowline{position:absolute;top:56px;bottom:0;left:calc(230px + (1440px - 230px) * 11.4 / 18);width:3px;background:var(--orange);z-index:3}
+.nowline span{position:absolute;top:6px;left:6px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;padding:3px 8px;white-space:nowrap}
+.sumi{font-size:15px;color:var(--ink2);margin-left:10px}.sumi b{font-size:28px;font-weight:900;color:var(--orange)}
+.sum{grid-column:13/-1;grid-row:7/8;background:var(--ink);color:#fff;margin:6px 3px;padding:12px 14px;display:flex;gap:28px;align-items:center;font-size:14px;z-index:2}
+.sum b{font-size:34px;font-weight:900;font-stretch:115%;color:var(--orange)}
+</style></head><body>
+<div class="plan">
+  <div class="top"><b>bon<i>mlink</i></b><span>Yayın planı · Hafta 43 · 20–26 Ekim</span><nav><span>Plan</span><span>Ekranlar</span><span>Reklam satışı</span><span>Fiyat</span></nav><span class="cta">Demo planla</span></div>
+  <div class="c hr">Lokasyon / ekran</div>
+  <div class="c hr">06</div><div class="c hr">07</div><div class="c hr">08</div><div class="c hr">09</div><div class="c hr">10</div><div class="c hr">11</div><div class="c hr">12</div><div class="c hr">13</div><div class="c hr">14</div><div class="c hr">15</div><div class="c hr">16</div><div class="c hr now">17</div><div class="c hr">18</div><div class="c hr">19</div><div class="c hr">20</div><div class="c hr">21</div><div class="c hr">22</div><div class="c hr">23</div>
+
+  <div class="c loc" style="grid-row:3">Kadıköy<span>Giriş ekranı</span></div><div class="c slot sold played" style="grid-column:12/15;grid-row:3">Kahve markası<small>satıldı</small></div><div class="c slot own" style="grid-column:15/20;grid-row:3">Akşam kampanyası</div>
+  <div class="c loc" style="grid-row:4">Ataşehir<span>Kasa üstü 2</span></div><div class="c slot own played" style="grid-column:12/14;grid-row:4">Sadakat</div><div class="c slot free" style="grid-column:14/20;grid-row:4">Boş · satılabilir</div>
+  <div class="c loc" style="grid-row:5">Bornova<span>Reyon 7 · raf</span></div><div class="c slot own played" style="grid-column:12/20;grid-row:5">Fiyat akışı · otomatik</div>
+  <div class="c loc" style="grid-row:6">Forum AVM<span>Kat 2 totem</span></div><div class="c slot sold" style="grid-column:12/17;grid-row:6">Kişisel bakım<small>satıldı</small></div><div class="c slot free" style="grid-column:17/20;grid-row:6">Boş</div>
+  <div class="c loc" style="grid-row:7">Çankaya<span>Menüboard</span></div><div class="c slot own played" style="grid-column:12/16;grid-row:7">Akşam menüsü</div><div class="c slot free" style="grid-column:16/20;grid-row:7">Boş · satılabilir</div>
+  <div class="c loc" style="grid-row:8">Nilüfer<span>Kasa üstü 1</span></div><div class="c slot sold" style="grid-column:12/20;grid-row:8">Atıştırmalık markası<small>satıldı</small></div>
+  <div class="c loc" style="grid-row:9">Konak<span>Giriş ekranı</span></div>
+    <div class="c slot own played" style="grid-column:2/9;grid-row:9">Haftanın fırsatları</div><div class="c slot free" style="grid-column:9/12;grid-row:9">Boş</div><div class="c slot sold played" style="grid-column:12/16;grid-row:9">Süt ürünleri<small>satıldı</small></div><div class="c slot own" style="grid-column:16/20;grid-row:9">Akşam kampanyası</div>
+  <div class="c loc" style="grid-row:10">Muratpaşa<span>Reyon 3 · raf</span></div>
+    <div class="c slot free" style="grid-column:2/5;grid-row:10">Boş</div><div class="c slot own played" style="grid-column:5/12;grid-row:10">Fiyat akışı · otomatik</div><div class="c slot sold" style="grid-column:12/20;grid-row:10">Kahve markası<small>satıldı</small></div>
+
+  <div class="head">
+    <h1>Her ekran bir<br>reklam alanı.<br><em>Hepsi tek planda.</em></h1>
+    <p>bonmlink mağaza ve mekân ekranlarınızı tek planda yönetir; boş saatleri markalara reklam alanı olarak satar.</p>
+    <div class="row"><span class="btn">Demo planla →</span><span class="btn2">Planı incele</span><span class="sumi">Bu hafta doluluk <b>%68</b> · <small>örnek veri</small></span></div>
+  </div>
+</div>
+<div class="nowline"><span>Şimdi 17:24</span></div>
+</body></html>

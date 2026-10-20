@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=1440">
+<title>Kategori Standardı — bonmlink</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#009FE3;--orange:#FF6600;--ink:#414042;--paper:#F4F4F4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:#fff;color:var(--ink);font-family:"Hanken Grotesk",sans-serif}
+nav{display:flex;align-items:center;gap:30px;height:80px;padding:0 64px;font-size:16px;font-weight:500;border-bottom:1px solid #E6E6E6}
+nav b{font-size:26px;font-weight:800;color:var(--ink)}nav b i{font-style:normal;color:var(--orange)}
+nav .r{margin-left:auto;display:flex;gap:28px;align-items:center}
+nav .cta{background:var(--orange);color:#fff;padding:12px 20px;border-radius:8px;font-weight:700}
+.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;padding:80px 64px 0;align-items:center}
+h1{font-size:80px;line-height:.98;font-weight:800;letter-spacing:-.035em}
+h1 span{color:var(--blue)}
+p{font-size:22px;line-height:1.45;max-width:38ch;margin-top:26px;color:#5C5B5C}
+.row{display:flex;gap:14px;margin-top:36px}
+.btn{background:var(--orange);color:#fff;font-weight:700;font-size:19px;padding:18px 28px;border-radius:10px}
+.btn2{border:1.5px solid #CFCFCF;padding:18px 26px;border-radius:10px;font-weight:600;font-size:19px}
+.app{background:var(--paper);border-radius:16px;padding:18px;box-shadow:0 30px 60px -30px rgba(11,59,87,.35)}
+.bar{display:flex;gap:8px;margin-bottom:14px}.bar i{width:12px;height:12px;border-radius:50%;background:#D5D5D5}
+.cols{display:grid;grid-template-columns:200px 1fr;gap:14px;height:470px}
+.side{background:#fff;border-radius:10px;padding:16px;display:grid;gap:10px;align-content:start;font-weight:600;font-size:16px}
+.side span{padding:10px;border-radius:8px}.side .on{background:#E6F6FD;color:var(--blue)}
+.main{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:12px}
+.scr{background:#1F1E20;border-radius:8px;aspect-ratio:16/10;display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:700;font-size:20px}
+.scr.o{background:var(--orange)}.scr.b{background:var(--blue)}
+.tl{grid-column:1/-1;background:#fff;border-radius:10px;padding:16px;display:grid;gap:10px}
+.tl div{height:30px;border-radius:6px}
+</style></head><body>
+<nav><b>bon<i>mlink</i></b><div class="r"><span>Özellikler</span><span>Reklam satışı</span><span>Kullanım alanları</span><span>SSS</span><span class="cta">Demo talep et</span></div></nav>
+<div class="hero">
+  <div><h1>Tüm ekranlarınız.<br><span>Tek panel.</span></h1>
+  <p>Mağaza ve mekân ekranlarınızı uzaktan yönetin, boş saatleri markalara reklam alanı olarak satın.</p>
+  <div class="row"><span class="btn">Demo talep et</span><span class="btn2">Paneli gör</span></div></div>
+  <div class="app"><div class="bar"><i></i><i></i><i></i></div>
+    <div class="cols"><div class="side"><span class="on">Ekranlar</span><span>Playlist</span><span>Reklam satışı</span><span>Raporlar</span></div>
+    <div class="main"><div class="scr o">Kahve %30</div><div class="scr">Menü</div><div class="scr b">Raf 7</div>
+    <div class="tl"><div style="background:var(--blue);width:70%"></div><div style="background:var(--orange);width:45%;margin-left:30%"></div><div style="background:#1F1E20;width:55%;margin-left:12%"></div></div></div></div>
+  </div>
+</div>
+</body></html>

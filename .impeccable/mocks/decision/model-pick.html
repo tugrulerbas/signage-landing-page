@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=1440">
+<title>Aktüel — bonmlink</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;0,900;1,900&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#009FE3;--orange:#FF6600;--ink:#1F1E20;--paper:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--orange);color:#fff;font-family:Barlow,sans-serif}
+.mast{height:92px;background:var(--blue);display:flex;align-items:center;padding:0 40px;gap:30px;font-family:"Barlow Condensed";font-weight:800;font-size:22px;text-transform:uppercase}
+.mast .logo{font-size:40px;font-weight:900;text-transform:none;letter-spacing:-.01em}
+.mast .date{margin-left:auto;background:var(--ink);padding:10px 18px}
+.mast .cta{background:#fff;color:var(--orange);padding:10px 18px}
+.body{display:grid;grid-template-columns:1.05fr 1fr;height:808px}
+.left{padding:46px 40px 0;position:relative}
+h1{font-family:"Barlow Condensed";font-weight:900;font-size:168px;line-height:.82;text-transform:uppercase;letter-spacing:-.01em}
+h1 span{display:block;color:var(--ink)}
+.lead{font-size:24px;line-height:1.35;max-width:34ch;margin-top:30px;font-weight:600}
+.coupon{margin-top:34px;display:inline-flex;align-items:center;gap:22px;background:#fff;color:var(--ink);padding:22px 30px;border:3px dashed var(--ink);font-family:"Barlow Condensed";font-weight:900;font-size:38px;text-transform:uppercase}
+.coupon small{font-family:Barlow;font-size:16px;font-weight:600;text-transform:none;max-width:16ch;line-height:1.2}
+.burst{position:absolute;right:30px;top:40px;width:190px;height:190px;background:#FFE100;color:var(--ink);clip-path:polygon(50% 0,61% 13%,77% 6%,79% 23%,95% 25%,89% 41%,100% 50%,89% 59%,95% 75%,79% 77%,77% 94%,61% 87%,50% 100%,39% 87%,23% 94%,21% 77%,5% 75%,11% 59%,0 50%,11% 41%,5% 25%,21% 23%,23% 6%,39% 13%);display:grid;place-items:center;text-align:center;font-family:"Barlow Condensed";font-weight:900;font-size:40px;line-height:.9;transform:rotate(-10deg)}
+.grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;padding:30px 40px 40px 0}
+.item{background:#fff;color:var(--ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.item .tag{align-self:flex-start;background:var(--blue);color:#fff;font-family:"Barlow Condensed";font-weight:800;font-size:18px;padding:4px 10px;text-transform:uppercase}
+.item h3{font-family:"Barlow Condensed";font-weight:900;font-size:46px;line-height:.9;text-transform:uppercase}
+.item .price{font-family:"Barlow Condensed";font-weight:900;font-size:72px;line-height:.8;color:var(--orange)}
+.item .price small{font-size:26px}
+.item p{font-size:16px;font-weight:600}
+.item.dark{background:var(--ink);color:#fff}.item.dark .price{color:#FFE100}
+</style></head><body>
+<header class="mast"><span class="logo">bonmlink</span><span>Aktüel ekran fırsatları</span><span>Mağaza</span><span>AVM</span><span>Restoran</span><span class="date">20–26 Ekim</span><span class="cta">Demo talep et</span></header>
+<main class="body">
+  <div class="left">
+    <h1>Ekranın<span>kendi</span>reklamını<span>satsın.</span></h1>
+    <p class="lead">Mağaza ekranlarınızı tek panelden yönetin, boş saatleri markalara reklam alanı olarak açın.</p>
+    <div class="coupon">Demo talep et <small>30 dakikalık görüşme, kendi mağaza senaryonuzla</small></div>
+    <div class="burst">YENİ<br>gelir<br>kalemi</div>
+  </div>
+  <div class="grid">
+    <div class="item"><span class="tag">Kasa üstü</span><div><h3>Marka<br>slotu</h3><p>Boş saat → satılan reklam</p></div><div class="price">%40<small> doluluk*</small></div></div>
+    <div class="item dark"><span class="tag">Tek panel</span><div><h3>Tüm<br>mağazalar</h3><p>Bir tıkla yayına alın</p></div><div class="price">1<small> panel</small></div></div>
+    <div class="item dark"><span class="tag">Raf ekranı</span><div><h3>Fiyat<br>akışı</h3><p>Stok verisiyle kendini günceller</p></div><div class="price">49,90<small>₺*</small></div></div>
+    <div class="item"><span class="tag">Kurulum</span><div><h3>Mevcut<br>ekranınız</h3><p>Yeni donanım şart değil</p></div><div class="price">0<small> yeni ekran</small></div></div>
+  </div>
+</main>
+<p style="position:absolute;right:40px;bottom:12px;font-size:13px;font-weight:600">* örnek değer</p>
+</body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=1440">
+<title>Fiyat Panosu — bonmlink</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#009FE3;--orange:#FF6600;--ink:#141315;--ghost:#2A282C}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:var(--ink);color:#fff;font-family:Archivo,sans-serif}
+nav{display:flex;align-items:center;gap:30px;height:80px;padding:0 48px;font-size:16px;font-stretch:110%}
+nav b{font-size:24px;font-weight:900}nav b i{font-style:normal;color:var(--orange)}
+nav .r{margin-left:auto;display:flex;gap:28px;align-items:center}
+nav .cta{background:var(--orange);padding:12px 20px;font-weight:800}
+.wrap{display:grid;grid-template-columns:1fr 560px;gap:40px;padding:30px 48px 0}
+h1{font-size:104px;line-height:.9;font-weight:900;font-stretch:120%;letter-spacing:-.035em;margin-top:40px}
+h1 em{font-style:normal;color:var(--orange)}
+p.lead{font-size:24px;line-height:1.4;color:#CFCFD2;max-width:34ch;margin-top:30px}
+.row{display:flex;gap:16px;margin-top:40px}
+.btn{background:var(--orange);font-weight:800;font-size:20px;padding:20px 30px;font-stretch:110%}
+.btn2{border:2px solid #fff;padding:18px 26px;font-weight:700;font-size:18px}
+.totem{background:#0A0A0B;border:14px solid #2E2D30;height:790px;display:flex;flex-direction:column}
+.totem .brand{background:var(--blue);padding:20px 28px;font-size:34px;font-weight:900;font-stretch:115%}
+.panel{flex:1;display:flex;flex-direction:column;gap:6px;padding:22px}
+.line{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #1C1B1E;padding:16px 8px}
+.line .k{font-size:20px;font-weight:800;font-stretch:90%;text-transform:uppercase;color:#E7E7E9;width:150px;line-height:1.1}
+.seg{display:flex;gap:10px}
+svg.d{width:58px;height:100px}
+svg.d .s{fill:var(--ghost)}svg.d .s.on{fill:var(--orange)}
+.line.blue svg.d .s.on{fill:var(--blue)}
+.dot{width:12px;height:12px;background:var(--orange);align-self:flex-end;margin-bottom:6px}
+.foot{padding:14px 28px;background:#1C1B1E;font-size:15px;color:#9C9BA0;display:flex;justify-content:space-between}
+</style></head><body>
+<nav><b>bon<i>mlink</i></b><span>Mimeda</span><div class="r"><span>Nasıl çalışır</span><span>Reklam satışı</span><span>SSS</span><span class="cta">Demo talep et</span></div></nav>
+<div class="wrap">
+  <div>
+    <h1>Fiyat değişir.<br>Saat değişir.<br><em>Ekran kendini<br>günceller.</em></h1>
+    <p class="lead">Tüm mağaza ve mekân ekranlarınız tek panelde. Boş saatleri markalara satın, her oynatmayı raporlayın.</p>
+    <div class="row"><span class="btn">Demo talep et →</span><span class="btn2">Panoyu canlı izle</span></div>
+  </div>
+  <div class="totem">
+    <div class="brand">bonmlink · Kadıköy</div>
+    <div class="panel" id="p"></div>
+    <div class="foot"><span>Son güncelleme 17:24:06</span><span>örnek veri</span></div>
+  </div>
+</div>
+<script>
+const M={0:"abcdef",1:"bc",2:"abged",3:"abgcd",4:"fgbc",5:"afgcd",6:"afgedc",7:"abc",8:"abcdefg",9:"abcdfg"," ":""};
+const P={a:"M8 2h42l-7 9H15z",b:"M52 4v42l-8-5V12z",c:"M52 54v42l-8-7V59z",d:"M8 98h42l-7-9H15z",e:"M6 54v42l8-7V59z",f:"M6 4v42l8-5V12z",g:"M10 50l5-5h28l5 5-5 5H15z"};
+const dig=ch=>`<svg class="d" viewBox="0 0 58 100">${Object.entries(P).map(([k,d])=>`<path class="s ${M[ch]?.includes(k)?'on':''}" d="${d}"/>`).join("")}</svg>`;
+const data=[["Kahve","4990",1,""],["Zeytinyağı","2190",1,""],["Boş slot"," 142",-1,"blue"],["Saat","1724",1,"blue"]];
+document.getElementById("p").innerHTML=data.map(([k,n,dp,c])=>`<div class="line ${c}"><span class="k">${k}</span><span class="seg">${[...n].map((ch,i)=>dig(ch)+(i===dp?'<span class="dot"></span>':'')).join("")}</span></div>`).join("");
+</script>
+</body></html>
