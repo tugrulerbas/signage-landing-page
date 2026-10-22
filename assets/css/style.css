@@ -8,6 +8,10 @@ p { margin: 0; text-wrap: pretty; }
 a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5px; }
 :focus-visible { outline: 3px solid var(--mm-blue); outline-offset: 3px; }
 
+/* Tek ekran: header, hero ve footer scroll olmadan görünür */
+body { display: grid; grid-template-rows: auto 1fr auto; height: max(100svh, 560px); }
+main { display: grid; min-height: 0; }
+
 .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 
 /* ============ Pills (butonlar) ============ */
@@ -31,10 +35,8 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 .logo__product { display: inline-flex; align-items: center; padding-left: 12px; border-left: 1.5px solid var(--mm-line); }
 .logo__brand { height: 44px; width: auto; display: block; }
 .logo--light { color: var(--white); }
-.logo--light .logo__img { filter: brightness(0) invert(1); }
-.logo--light .logo__product { border-left-color: rgba(255, 255, 255, .3); }
 /* bonmedia logosu renkli; koyu footer'da beyaz zemin üstünde duruyor */
-.logo--light .logo__brand { box-sizing: content-box; padding: 5px 9px; border-radius: 8px; background: var(--white); }
+.logo--light .logo__brand { height: 30px; box-sizing: content-box; padding: 4px 8px; border-radius: 8px; background: var(--white); }
 
 .nav { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--mm-line); }
 .nav__inner { display: flex; align-items: center; gap: 32px; height: 68px; }
@@ -42,7 +44,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 
 /* ============ Hero ============ */
 /* Metin temiz beyaz zeminde; sahne hemen altında başlar, üst kenarı beyaza erir */
-.hero { position: relative; overflow: hidden; background: var(--white); }
+.hero { position: relative; overflow: hidden; background: var(--white); display: flex; flex-direction: column; min-height: 0; }
 .hero::before { /* başlığın arkasında çok hafif marka ışığı */
   content: ""; position: absolute; z-index: 1; inset: -20% -10% auto auto; width: 70%; height: 90%; pointer-events: none;
   background: radial-gradient(closest-side, rgba(0, 159, 227, .10), transparent), radial-gradient(closest-side at 70% 60%, rgba(255, 102, 0, .07), transparent);
@@ -50,16 +52,23 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 }
 @keyframes drift { to { transform: translate(-8%, 6%) scale(1.08); } }
 
-.hero__copy { position: relative; z-index: 2; padding-top: clamp(56px, 9vh, 112px); }
-.hero__title { font-size: var(--fs-hero); max-width: 16ch; }
-.hero__lead { font-size: var(--fs-lead); color: var(--mm-ink); max-width: 46ch; margin-top: 24px; }
+.hero__copy { position: relative; z-index: 2; width: 100%; padding-top: clamp(20px, 5vh, 64px); }
+.hero__title { font-size: clamp(2rem, min(5vw, 7vh), 4.25rem); max-width: 28ch; }
+.hero__lead { font-size: var(--fs-lead); color: var(--mm-ink); max-width: 46ch; margin-top: clamp(10px, 2vh, 20px); }
 
-.hero__stage { position: relative; width: max(100%, 1100px); left: 50%; transform: translateX(-50%); margin-top: clamp(40px, 6vw, 96px); }
+/* Sahne kalan yüksekliği doldurur; mağaza yüksekliğe göre ölçeklenir, yanlar duvar/zeminle devam eder */
+/* Mağazanın altına --floor-x kadar zemin eklenir; saat seçici bu zemin şeridinin ortasında durur */
+.hero__stage {
+  --floor-x: 44px; --store-h: calc(100% - var(--floor-x));
+  --floor-top: calc(var(--floor-x) + var(--store-h) * .1174); /* zemin çizgisinin alt kenarı (alttan) */
+  position: relative; flex: 1; min-height: 200px; overflow: hidden; margin-top: clamp(12px, 3vh, 40px);
+  background: linear-gradient(to top, #D7DEE2 0 var(--floor-top), var(--mm-ink-night) var(--floor-top) calc(var(--floor-x) + var(--store-h) * .1304), var(--wall) 0);
+}
 .hero__stage::before { /* sahnenin üst kenarını beyaza erit */
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 26%; z-index: 1; pointer-events: none;
   background: linear-gradient(to bottom, var(--white), rgba(255, 255, 255, 0));
 }
-.hero__controls { position: absolute; left: 50%; transform: translateX(-50%); width: 100%; bottom: 18px; z-index: 3; display: flex; align-items: center; gap: 14px; }
+.hero__controls { position: absolute; left: 50%; transform: translateX(-50%); width: 100%; bottom: calc((var(--floor-top) - 44px) / 2); z-index: 3; display: flex; align-items: center; gap: 14px; }
 
 .phases { display: inline-flex; gap: 2px; padding: 4px; background: var(--white); border: 1px solid #D4D4D6; border-radius: 999px; }
 .phases button { border: 0; background: transparent; color: var(--mm-ink-night); font: 600 .92rem var(--font); padding: 8px 16px; border-radius: 999px; cursor: pointer; position: relative; overflow: hidden; }
@@ -73,16 +82,20 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 .js .hero__title .w { display: inline-block; opacity: 0; transform: translateY(.45em); filter: blur(6px); animation: wordIn .9s var(--ease) forwards; animation-delay: calc(var(--i) * 55ms + 80ms); }
 @keyframes wordIn { to { opacity: 1; transform: none; filter: blur(0); } }
 .js .hero__stage { animation: stageIn 1.4s var(--ease) .5s both; }
-@keyframes stageIn { from { opacity: 0; transform: translate(-50%, 60px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@keyframes stageIn { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: none; } }
 
 /* ============ Mağaza sahnesi ============ */
+@property --wall { syntax: "<color>"; inherits: true; initial-value: #EAF6FC; }
+@property --sky { syntax: "<color>"; inherits: true; initial-value: #BFE6F8; }
+.hero__stage { --wall: #EAF6FC; --sky: #BFE6F8; transition: --wall 1.4s var(--ease), --sky 1.4s var(--ease); }
+.hero__stage:has(.store[data-phase="1"]) { --wall: #F5FBFE; --sky: #8DD5F4; }
+.hero__stage:has(.store[data-phase="2"]) { --wall: #DDE6EB; --sky: #0B3B57; }
 .store {
-  --wall: #EAF6FC; --sky: #BFE6F8;
-  position: relative; width: 100%; aspect-ratio: 1200 / 460; container-type: inline-size;
+  position: absolute; bottom: var(--floor-x); left: 50%; height: var(--store-h); aspect-ratio: 1200 / 460; transform: translateX(-50%); container-type: inline-size;
 }
 .store__bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.store__bg .wall { fill: var(--wall); transition: fill 1.4s var(--ease); }
-.store__bg .sky { fill: var(--sky); transition: fill 1.4s var(--ease); }
+.store__bg .wall { fill: var(--wall); }
+.store__bg .sky { fill: var(--sky); }
 .store__bg .floor { fill: #D7DEE2; }
 .store__bg .ink { fill: var(--mm-ink-night); }
 .store__bg .blue { fill: var(--mm-blue); }
@@ -91,8 +104,6 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 .store__bg .p1 { fill: var(--mm-orange); }
 .store__bg .p2 { fill: var(--mm-blue); }
 .store__bg .p3 { fill: #B9C3C9; }
-.store[data-phase="1"] { --wall: #F5FBFE; --sky: #8DD5F4; }
-.store[data-phase="2"] { --wall: #DDE6EB; --sky: #0B3B57; }
 
 .clock { position: absolute; left: 72.17%; top: 9.57%; width: 5.67%; height: 14.78%; display: grid; place-items: center; font-weight: 800; font-size: 1.35cqw; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 
@@ -127,7 +138,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
 .store[data-phase="1"] .sold { opacity: 1; transform: translate(-50%, 0); transition-delay: .5s; }
 
 /* ============ Footer ============ */
-.footer { background: var(--mm-ink-night); color: #D6D5D9; padding-block: 40px; font-size: .95rem; }
+.footer { background: var(--mm-ink-night); color: #D6D5D9; padding-block: 14px; font-size: .95rem; }
 .footer__inner { display: flex; align-items: center; gap: 16px 32px; flex-wrap: wrap; }
 .footer a { color: var(--white); font-weight: 600; }
 .footer__copy { margin-left: auto; }
@@ -143,12 +154,11 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5p
   .logo__img { height: 32px; margin-block: -6px; }
   .logo__brand { height: 32px; }
   .logo__product { padding-left: 8px; }
-  .hero__stage { width: 640px; left: 0; transform: translateX(-230px); margin-top: 36px; }
-  .js .hero__stage { animation-name: stageInM; }
-  .hero__controls { position: relative; left: 0; transform: translateX(230px); width: 100vw; margin: 0; bottom: auto; padding: 14px 16px; }
+  /* Dar ekranda mağazanın raf ve kasa kısmı görünsün */
+  .hero__stage { --store-h: min(100% - var(--floor-x), 250px); }
+  .store { transform: translateX(-65%); }
+  .footer__inner { gap: 8px 16px; font-size: .85rem; }
 }
-
-@keyframes stageInM { from { opacity: 0; transform: translate(-230px, 40px); } to { opacity: 1; transform: translateX(-230px); } }
 
 @media (prefers-reduced-motion: reduce) {
   .js [data-reveal], .js .hero__title .w { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
